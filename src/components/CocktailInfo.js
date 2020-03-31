@@ -16,20 +16,29 @@ class CocktailInfo extends Component {
     const data = this.props.cocktail;
     console.log(ingredients);
     return (
-      <div>
-        <h1>{data.strDrink}</h1>
-        <h2>Is alcoholic:{data.strAlcoholic}</h2>
-        <h4>Drink in {data.strGlass}</h4>
-        <p>Instructions:{data.strInstructions}</p>
-        <h3>Ingredients</h3>
-        <ul>
-          {ingredients.map((ingredient, key) => (
-            <li key={key}>
-              {ingredient.ingredient}:{ingredient.measurement}
-            </li>
-          ))}
-        </ul>
-        <img src={data.strDrinkThumb} style={{ height: 200, width: 200 }} />
+      <div className='row justify-content-center'>
+        <div className='col-sm-10 col-md-6 col-lg-5 cocktail-wrapper'>
+          <h1 className='header-text'>{data.strDrink}</h1>
+          <h3 className='secondary-text'>{data.strAlcoholic}</h3>
+          <h3 className='secondary-text'>Serve in : {data.strGlass}</h3>
+          <div className='row'>
+            <div className='col'>
+              <h3 className='header-text'>Ingredients</h3>
+              <ul>
+                {ingredients.map((ingredient, key) => (
+                  <li key={key} className='secondary-text'>
+                    {ingredient.ingredient} : {ingredient.measurement}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className='col'>
+              <img src={data.strDrinkThumb} />
+            </div>
+          </div>
+          <h3 className='header-text'>Instructions</h3>
+          <p className='secondary-text'>{data.strInstructions}</p>
+        </div>
       </div>
     );
   }

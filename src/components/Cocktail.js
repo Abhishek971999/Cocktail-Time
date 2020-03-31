@@ -21,7 +21,9 @@ class Cocktail extends Component {
     let data = (
       <Fragment>
         <CocktailInfo cocktail={this.state.cocktail} />
-        <button onClick={this.getCocktail}>Refresh</button>
+        <button className='btn' onClick={this.getCocktail}>
+          Refresh
+        </button>
       </Fragment>
     );
     return <div>{data}</div>;
